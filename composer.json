@@ -1,5 +1,5 @@
 {
-  "name": "tylerian/oauth2-server-lumen",
+  "name": "tylerian/lumen-oauth2-server",
   "description": "The league/oauth2-server framework integration for Lumen 5",
   "keywords": ["OAuth", "Lumen"],
   "homepage": "http://www.github.com/tylerian/lumen-oauth2-server",
