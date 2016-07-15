@@ -1,8 +1,8 @@
 {
-  "name": "tylerian/lumen-oauth2-server",
+  "name": "tylerian/illuminate-oauth2-server",
   "description": "The league/oauth2-server framework integration for Lumen 5",
-  "keywords": ["OAuth", "Lumen"],
-  "homepage": "http://www.github.com/tylerian/lumen-oauth2-server",
+  "keywords": ["OAuth2", "Server", "Lumen", "Laravel"],
+  "homepage": "http://www.github.com/tylerian/illuminate-oauth2-server",
   "license": "MIT",
   "authors": [
     {
@@ -12,8 +12,8 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "illuminate/config": "~5.0",
-    "illuminate/support": "~5.0",
+    "illuminate/config": "5.1.*|5.2.*|5.3.*",
+    "illuminate/support": "5.1.*|5.2.*|5.3.*",
 	"league/oauth2-server": "^5.1"
   },
   "require-dev": {
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Tylerian\\OAuth2Server\\": "src/"
+      "Tylerian\\Illuminate\\OAuth2\\Server\\": "src/"
     }
   },
   "minimum-stability": "dev"
