@@ -4,8 +4,9 @@ namespace Tylerian\Lumen\OAuth2\Server\Models;
 
 use DateTime;
 
-use League\OAuth2\Server\Entities\Traits\EntityTrait;
-use League\OAuth2\Server\Entities\Traits\RefreshTokenTrait;
+use Carbon\Carbon;
+
+use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use League\OAuth2\Server\Entities\RefreshTokenEntityInterface;
 
 class OAuth2RefreshToken extends Eloquent implements RefreshTokenEntityInterface
@@ -38,7 +39,7 @@ class OAuth2RefreshToken extends Eloquent implements RefreshTokenEntityInterface
         return $this->access_token;
     }
 
-    public function setAccessToken(AccessTokenInterface $access_token)
+    public function setAccessToken(AccessTokenEntityInterface $access_token)
     {
         $this->access_token = $access_token;
     }

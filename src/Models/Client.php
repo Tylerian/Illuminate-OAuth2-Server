@@ -1,6 +1,6 @@
 <?php
 
-namespace Tylerian\Lumen\OAuth2\Server\Models;
+namespace Tylerian\Illuminate\OAuth2\Server\Models;
 
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 
@@ -11,6 +11,11 @@ class Client extends Eloquent implements ClientEntityInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getSecret()
+    {
+        return $this->secret;
     }
 
     public function getIdentifier()

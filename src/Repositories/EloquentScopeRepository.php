@@ -2,6 +2,9 @@
 
 namespace Tylerian\Illuminate\OAuth2\Server\Repositories;
 
+use Tylerian\Illuminate\OAuth2\Server\Models\Scope;
+
+use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
 
 class EloquentScopeRepository implements ScopeRepositoryInterface

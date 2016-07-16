@@ -1,3 +1,3 @@
 <?php
 
-namespace Tylerian\OAuth2Server;
+namespace Tylerian\Illuminate\OAuth2\Server;

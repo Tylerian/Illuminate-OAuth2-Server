@@ -1,12 +1,20 @@
 <?php
 
-class EloquentClientRepository implements ClientRepository
+namespace Tylerian\Illuminate\OAuth2\Server\Repositories;
+
+use Closure;
+
+use Tylerian\Illuminate\OAuth2\Server\Models\Client;
+
+use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
+
+class EloquentClientRepository implements ClientRepositoryInterface
 {
     private $validator;
 
     public function __construct(Closure $validator = null)
     {
-        $this->validator = $validator ?? function($value, $expected)
+        $this->validator = $validator ?: function($value, $expected)
         {
             return password_verify($value, $expected);
         };

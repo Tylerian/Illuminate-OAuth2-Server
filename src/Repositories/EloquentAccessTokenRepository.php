@@ -1,11 +1,13 @@
 <?php
 
-namespace Tylerian\Illuminate\OAuth2\Server\Repositores;
+namespace Tylerian\Illuminate\OAuth2\Server\Repositories;
 
-use Tylerian\Illuminate\Oauth2\Server\Models;
-use Tylerian\Illuminate\Oauth2\Server\Exceptions;
-
+use League\OAuth2\Server\Entities\ClientEntityInterface;
+use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
+
+use Tylerian\Illuminate\Oauth2\Server\Models\AccessToken;
+use Tylerian\Illuminate\OAuth2\Server\Exceptions\ResourceNotFoundException;
 
 class EloquentAccessTokenRepository implements AccessTokenRepositoryInterface
 {
@@ -14,18 +16,13 @@ class EloquentAccessTokenRepository implements AccessTokenRepositoryInterface
      */
     public function revokeAccessToken($identifier)
     {
-        $access_token = AccessToken::find($identifier);
-
-        if ($access_token)
+        if ($access_token = AccessToken::find($identifier))
         {
             $access_token->setRevoked(true);
-            $access_token->save();
+            $access_token->save();   return;
         }
 
-        else
-        {
-            throw new AccessTokenNotFoundException($identifier);
-        }
+        throw new ResourceNotFoundException('access token', $identifier);
     }
     
     /**
@@ -33,14 +30,12 @@ class EloquentAccessTokenRepository implements AccessTokenRepositoryInterface
      */
     public function isAccessTokenRevoked($identifier)
     {
-        $access_token = AccessToken::find($identifier);
-
-        if ($access_token)
+        if ($access_token = AccessToken::find($identifier))
         {
 	        return $access_token->isRevoked();
         }
 
-        throw new AccessTokenNotFoundException($identifier);
+        throw new ResourceNotFoundException('access token', $identifier);
     }
 
     /**
