@@ -17,9 +17,31 @@ class AccessToken extends Eloquent implements AccessTokenEntityInterface
 
     protected $table = 'oauth2_tokens_access';
 
+    public function isExpired()
+    {
+        return Carbon::now()->gte(
+            $this->getExpiryDateTime()
+        );
+    }
+
+    public function isRevoked()
+    {
+        return $this->revoked;
+    }
+
+    public function setRevoked($value)
+    {
+        $this->revoked = value;
+    }
+
     public function getClient()
     {
         return $this->client;
+    }
+
+    public function setClient(ClientEntityInterface $client)
+    {
+        $this->client = $client;
     }
 
     public function getScopes()
@@ -37,11 +59,6 @@ class AccessToken extends Eloquent implements AccessTokenEntityInterface
     public function getUserIdentifier()
     {
         return $this->id_account;
-    }
-
-    public function setClient(ClientEntityInterface $client)
-    {
-        $this->client = $client;
     }
 
     public function setExpiryDateTime(DateTime $date)

@@ -9,6 +9,9 @@ use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
 use Tylerian\Illuminate\Oauth2\Server\Models\AccessToken;
 use Tylerian\Illuminate\OAuth2\Server\Exceptions\ResourceNotFoundException;
 
+/**
+ *
+ */
 class EloquentAccessTokenRepository implements AccessTokenRepositoryInterface
 {
     /**
